@@ -1,0 +1,150 @@
+
+
+1. Count the occurrences:
+
+```javascript
+function countOccurrences(text) {
+  const words = text.split(" ");
+  const countMap = new Map();
+
+  for (let word of words) {
+    if (countMap.has(word)) {
+      countMap.set(word, countMap.get(word) + 1);
+    } else {
+      countMap.set(word, 1);
+    }
+  }
+
+  return countMap;
+}
+
+// Example usage:
+const text = "This is a sample text. This text is just for testing.";
+const occurrences = countOccurrences(text);
+console.log(occurrences);
+```
+
+Output:
+```
+Map(8) {
+  'This' => 2,
+  'is' => 2,
+  'a' => 1,
+  'sample' => 1,
+  'text.' => 1,
+  'text' => 1,
+  'just' => 1,
+  'for' => 1,
+  'testing.' => 1
+}
+```
+
+2. Only unique items are allowed:
+
+```javascript
+function removeDuplicates(array) {
+  return [...new Set(array)];
+}
+
+// Example usage:
+const numbers = [1, 2, 3, 4, 2, 1, 5, 3];
+const uniqueNumbers = removeDuplicates(numbers);
+console.log(uniqueNumbers);
+```
+
+Output:
+```
+[1, 2, 3, 4, 5]
+```
+
+3. Swap the values:
+
+```javascript
+function swapValues(x, y) {
+  [x, y] = [y, x];
+  return [x, y];
+}
+
+// Example usage:
+let x = 5;
+let y = 10;
+[x, y] = swapValues(x, y);
+console.log(x, y);
+```
+
+Output:
+```
+10 5
+```
+
+4. Access random elements:
+
+```javascript
+function extractElements(array) {
+  const [first, second, , , , last] = array;
+  return [first, second, last];
+}
+
+// Example usage:
+const numbers = [1, 2, 3, 4, 5];
+const extractedElements = extractElements(numbers);
+console.log(extractedElements);
+```
+
+Output:
+```
+[1, 2, 5]
+```
+
+5. Min and max values:
+
+```javascript
+function findMinMax(array) {
+  return { min: Math.min(...array), max: Math.max(...array) };
+}
+
+// Example usage:
+const numbers = [5, 2, 7, 1, 9];
+const minMax = findMinMax(numbers);
+console.log(minMax);
+```
+
+Output:
+```
+{ min: 1, max: 9 }
+```
+
+6. Nested Objects:
+Certainly! Here's the updated function that extracts the name and street properties from the nested object:
+
+```javascript
+function extractNameAndStreet(person) {
+  const { name, address: { street } } = person;
+  return { name, street };
+}
+
+// Example usage:
+const person = {
+  name: "Mithun",
+  age: 21,
+  address: {
+    street: "B8, Block B, Industrial Area.",
+    city: "Sector 62, Noida",
+    state: "Uttar Pradesh"
+  }
+};
+
+const { name, street } = extractNameAndStreet(person);
+console.log(name, street);
+```
+
+Output:
+```
+Mithun B8, Block B, Industrial Area.
+```
+
+In this example, the function `extractNameAndStreet` takes an object `person` as input. By using object destructuring, it extracts the `name` property directly from the `person` object. It also extracts the `street` property from the nested `address` object within `person`.
+
+The function then returns an object with the extracted `name` and `street` properties. Finally, we use object destructuring again to extract `name` and `street` from the returned object and log them to the console.
+
+I hope this helps! Let me know if you have any more questions.
